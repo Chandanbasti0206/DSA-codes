@@ -1,0 +1,81 @@
+#include <stdio.h>
+
+struct player
+{
+    char name[20];
+    char nationality[20];
+    int odi;
+    int runs;
+    float batting_avg;
+} s1, s2, s3;
+
+void main()
+{
+    printf("\nEnter the name, nationality, ODI rank, total runs scored and batting average of player1:\n");
+    scanf("%s%s%d%d%f", &s1.name, &s1.nationality, &s1.odi, &s1.runs, &s1.batting_avg);
+
+    printf("\nEnter the name, nationality, ODI rank, total runs scored and batting average of player2:\n");
+    scanf("%s%s%d%d%f", &s2.name, &s2.nationality, &s2.odi, &s2.runs, &s2.batting_avg);
+
+    printf("\nEnter the name, nationality, ODI rank, total runs scored and batting average of player3:\n");
+    scanf("%s%s%d%d%f", &s3.name, &s3.nationality, &s3.odi, &s3.runs, &s3.batting_avg);
+
+    printf("\nDetails of the player whose batting average is least are:\n");
+
+    if (s1.batting_avg < s2.batting_avg && s1.batting_avg < s3.batting_avg)
+    {
+        printf("Name: %s\n", s1.name);
+        printf("Nationality: %s\n", s1.nationality);
+        printf("ODI rank: %d\n", s1.odi);
+        printf("Total runs scored: %d\n", s1.runs);
+        printf("Batting average: %f\n", s1.batting_avg);
+    }
+
+    else if (s2.batting_avg < s1.batting_avg && s2.batting_avg < s3.batting_avg)
+    {
+        printf("Name: %s\n", s2.name);
+        printf("Nationality: %s\n", s2.nationality);
+        printf("ODI rank: %d\n", s2.odi);
+        printf("Total runs scored: %d\n", s2.runs);
+        printf("Batting average: %f\n", s2.batting_avg);
+    }
+
+    if (s3.batting_avg < s1.batting_avg && s3.batting_avg < s2.batting_avg)
+    {
+        printf("Name: %s\n", s3.name);
+        printf("Nationality: %s\n", s3.nationality);
+        printf("ODI rank: %d\n", s3.odi);
+        printf("Total runs scored: %d\n", s3.runs);
+        printf("Batting average: %f\n", s3.batting_avg);
+    }
+
+    printf("\nDetails of the player whose ODI rank is highest are:\n");
+
+    if (s1.odi < s2.odi && s1.odi < s3.odi)
+    {
+        printf("Name: %s\n", s1.name);
+        printf("Nationality: %s\n", s1.nationality);
+        printf("ODI rank: %d\n", s1.odi);
+        printf("Total runs scored: %d\n", s1.runs);
+        printf("Batting average: %f\n", s1.batting_avg);
+    }
+
+    else if (s2.odi < s1.odi && s2.odi < s3.odi)
+    {
+        printf("Name: %s\n", s2.name);
+        printf("Nationality: %s\n", s2.nationality);
+        printf("ODI rank: %d\n", s2.odi);
+        printf("Total runs scored: %d\n", s2.runs);
+        printf("Batting average: %f\n", s2.batting_avg);
+    }
+
+    if (s3.odi < s1.odi && s3.odi < s2.odi)
+    {
+        printf("Name: %s\n", s3.name);
+        printf("Nationality: %s\n", s3.nationality);
+        printf("ODI rank: %d\n", s3.odi);
+        printf("Total runs scored: %d\n", s3.runs);
+        printf("Batting average: %f\n", s3.batting_avg);
+    }
+
+}
