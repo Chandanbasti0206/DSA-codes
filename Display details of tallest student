@@ -1,0 +1,56 @@
+#include<stdio.h>
+struct student
+{
+  char sname[30];
+  int rno;
+  float ht;
+};
+
+main()
+{
+    void read(struct student *ptr1,struct student *ptr2);
+    void display(struct student *ptr1,struct student *ptr2);
+    void tall_student(struct student *ptr1, struct student *ptr2);
+   struct student s1,s2;
+   struct student *ptr1,*ptr2;
+   ptr1=&s1;
+   ptr2=&s2;
+   read(ptr1,ptr2);
+   display(ptr1,ptr2);
+   tall_student(ptr1,ptr2);
+}
+
+void read(struct student *ptr1,struct student *ptr2)
+{
+    printf("enter name, roll no and height of a student1\n");
+   scanf("%s%d%f",&ptr1->sname,&ptr1->rno,&ptr1->ht);
+
+
+   printf("enter name, roll no and height of a student2\n");
+   scanf("%s%d%f",&ptr2->sname,&ptr2->rno,&ptr2->ht);
+}
+
+void display(struct student *ptr1,struct student *ptr2)
+{
+
+     printf("details of student 1 are\n");
+   printf("name=%s\t roll no=%d\t height=%f\n",ptr1->sname,ptr1->rno,ptr1->ht);
+
+   printf("details of student 2 are\n");
+   printf("name=%s\t roll no=%d\t height=%f\n",ptr2->sname,ptr2->rno,ptr2->ht);
+
+}
+
+void tall_student(struct student *ptr1,struct student *ptr2)
+{
+    if(ptr1->ht > ptr2->ht)
+    {
+        printf("taller student is\n");
+          printf("name=%s\t roll no=%d\t height=%f\n",ptr1->sname,ptr1->rno,ptr1->ht);
+    }
+    else
+    {
+        printf("taller student is\n");
+         printf("name=%s\t roll no=%d\t height=%f\n",ptr2->sname,ptr2->rno,ptr2->ht);
+    }
+}
