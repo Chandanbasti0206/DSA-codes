@@ -1,18 +1,18 @@
 #include<stdio.h>
-int x[5],i;
+int x[50],i;
 main()
 {
    int n;
    void read_array(int n);
    void display_array(int n);
-   void display_even_array(int n);
+  void greater_than15(int n);
    printf("enter how many elements\n");
    scanf("%d",&n);
-   if(n>=1 && n<=5)
+   if(n>=1 && n<=50)
    {
        read_array(n);
        display_array(n);
-       display_even_array(n);
+       greater_than15(n);
    }
    else
    {
@@ -41,12 +41,12 @@ void display_array(int n)
      }
 }
 
-void display_even_array(int n)
+void greater_than15(int n)
 {
-      printf("\nthe even elements of the array are\n");
+      printf("\nthe greater than 15 elements are\n");
       for(i=0;i<n;i++)
       {
-         if(x[i]%2==0)
+         if(x[i]>15)
          {
             printf("%d ",x[i]);
          }
