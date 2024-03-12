@@ -1,0 +1,169 @@
+#include<stdio.h>
+#define NULL 0
+struct book
+{
+  char bname[30];
+  char aname[30];
+  float price;
+  struct book *link;
+};
+
+main()
+{
+struct book *head,*start,*ptr;
+head=NULL;
+int ch;
+struct book* insert_at_front(struct book *head,struct book *ptr);
+struct book* insert_at_end(struct book*,struct book *);
+struct book* delete_at_front(struct book*);
+struct book* delete_at_end(struct book*);
+void display_SLL(struct book*);
+do
+{
+   printf("1--INSERT A NODE AT FRONT\n");
+   printf("2--INSERT A NODE AT END\n");
+   printf("3--DELETE A NODE AT FRONT\n");
+   printf("4--DELETE A NODE AT END\n");
+   printf("5--DISPLAY LINKED LIST\n");
+   printf("6--EXIT\n");
+
+   printf("enter your choice\n");
+   scanf("%d",&ch);
+
+   switch(ch)
+   {
+     case 1:ptr=(struct book*)malloc(sizeof(struct book));
+            printf("enter bname author name and price of book\n");
+            scanf("%s%s%f",&ptr->bname,&ptr->aname,&ptr->price);
+            head=insert_at_front(head,ptr);
+            break;
+    case 2: ptr=(struct book*)malloc(sizeof(struct book));
+            printf("enter bname author name  and price of book\n");
+            scanf("%s%s%f",&ptr->bname,&ptr->aname,&ptr->price);
+            head=insert_at_end(head,ptr);
+            break;
+    case 3: if(head==NULL)
+            printf("SLL is empty\n");
+            else
+            {
+               head=delete_at_front(head);
+            }
+            break;
+    case 4:if(head==NULL)
+            printf("SLL is empty\n");
+            else
+            {
+               head=delete_at_end(head);
+            }
+            break;
+    case 5: if(head==NULL)
+            printf("SLL is empty\n");
+            else
+            {
+              display_SLL(head);
+            }
+            break;
+    case 6: exit(0);break;
+    default:printf("Invalid choice\n");break;
+   }
+}while(ch!=6);
+}
+
+struct book* insert_at_front(struct book *head, struct book *ptr)
+{
+    if(head==NULL)
+    {
+       head=ptr;
+       head->link=NULL;
+    }
+    else
+    {
+      ptr->link=head;
+      head=ptr;
+    }
+    return(head);
+}
+
+struct book* insert_at_end(struct book *head, struct book *ptr)
+{
+    struct book *start;
+    if(head==NULL)
+    {
+       head=ptr;
+       head->link=NULL;
+    }
+    else
+    {
+      start=head;
+      while(start->link!=NULL)
+      {
+         start=start->link;
+      }
+      start->link=ptr;
+      ptr->link=NULL;
+    }
+    return(head);
+}
+
+struct book* delete_at_front(struct book *head)
+{
+    struct book *cur;
+      if(head->link==NULL)
+      {
+          printf("book deleted is\n");
+          printf("bname=%s\t aname=%s\t price=%f\n",head->bname,head->aname,head->price);
+          free(head);
+          head=NULL;
+      }
+      else
+      {
+           cur=head;
+           head=head->link;
+           printf("book deleted is\n");
+          printf("bname=%s\t aname=%s\t price=%f\n",cur->bname,cur->aname,cur->price);
+          free(cur);
+      }
+      return(head);
+
+}
+
+
+struct book* delete_at_end(struct book *head)
+{
+    struct book *start,*cur;
+      if(head->link==NULL)
+      {
+          printf("book deleted is\n");
+          printf("bname=%s\t aname=%s\t price=%f\n",head->bname,head->aname,head->price);
+          free(head);
+          head=NULL;
+      }
+      else
+      {
+          start=head;
+      while(start->link!=NULL)
+      {
+          cur=start;
+         start=start->link;
+      }
+        printf("book deleted is\n");
+          printf("bname=%s\t aname=%s\t price=%f\n",start->bname,start->aname,start->price);
+          free(start);
+          cur->link=NULL;
+      }
+      return(head);
+
+}
+
+void display_SLL(struct book *head)
+{
+   struct book *start;
+   start=head;
+   while(start->link!=NULL)
+   {
+       printf("bname=%s\t aname=%s\t price=%f\n",start->bname,start->aname,start->price);
+       start=start->link;
+   }
+     printf("bname=%s\t aname=%s\t price=%f\n",start->bname,start->aname,start->price);
+
+}
